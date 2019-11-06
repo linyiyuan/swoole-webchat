@@ -50,7 +50,7 @@ $(function () {
         //视频聊天模态框
         // $('#videoCall').modal('show');
         //提示前往github模态框
-        $('#pageTour').modal('show');
+        // $('#pageTour').modal('show');
     }, 1000);
 
 
@@ -81,7 +81,7 @@ $(function () {
     });
 
     $('.go-github').on('click', function(){
-        location.href="https://www.baidu.com"
+        location.href="https://github.com/linyiyuan/swoole-webchat"
     })
 
 });

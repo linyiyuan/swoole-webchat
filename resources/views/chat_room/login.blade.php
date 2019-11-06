@@ -1,12 +1,12 @@
+@include('chat_room.message')
 @extends('chat_room.common')
 
 <div class="form-wrapper">
-
     <!-- logo -->
     <div class="logo">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="612px" height="612px" viewBox="0 0 612 612"
+             width="612px" height="100px" viewBox="0 0 612 612"
              style="enable-background:new 0 0 612 612;" xml:space="preserve">
             <g>
                 <g id="_x32__26_">
@@ -40,22 +40,23 @@
     </div>
     <!-- ./ logo -->
 
-    <h5>Sign in</h5>
+    <h5>Swoole-WebChat</h5>
 
     <!-- form -->
-    <form>
+    <form action="{{ url('/auth/doLogin') }}" method= "post" >
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username or email" required autofocus>
+            <input type="text" name="email" class="form-control" placeholder="请输入邮箱进行登录" required autofocus>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" placeholder="请输入登录密码" required>
         </div>
         <div class="form-group d-flex justify-content-between">
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" checked="" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember me</label>
             </div>
-            <a href="./reset-password.html">重置密码</a>
+            <a href="{{ url('/reset_password') }}">重置密码</a>
         </div>
         <button class="btn btn-primary btn-block">登录</button>
         <hr>
@@ -94,7 +95,7 @@
         </ul>
         <hr>
         <p class="text-muted">Don't have an account?</p>
-        <a href="{{ url('/register') }}" class="btn btn-outline-light btn-sm">Register now!</a>
+        <a href="{{ url('/auth/register') }}" class="btn btn-outline-light btn-sm">Register now!</a>
     </form>
     <!-- ./ form -->
 

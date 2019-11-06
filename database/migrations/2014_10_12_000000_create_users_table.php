@@ -13,19 +13,23 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('chat_user', function (Blueprint $table) {
+
             $table->increments('id');
-            $table->string('username', '25')->comment('用户名');
-            $table->string('password', '100')->comment('账号密码');
-            $table->tinyinteger('status')->default(1)->comment('账号状态 0-停用，1-启用');
-            $table->integer('last_login')->default(0)->comment('上次登录时间');
-            $table->integer('create_time')->default(0)->comment('创建时间');
-            $table->string('last_ip', '15')->default(0)->comment('上次登录IP');
-            $table->string('creater', '100')->default('')->comment('创建者');
-            $table->string('avatar', '255')->default('')->comment('用户头像');
-            $table->string('desc', '255')->default('')->comment('描述，备注');
-            $table->string('mobile', '15')->default('')->comment('手机号码');
-            $table->integer('code_addTime')->default(0)->comment('短信验证码添加失败');
+            $table->string('nickname')->default('')->comment('用户昵称');
+            $table->string('password')->default('')->comment('用户密码');
+            $table->string('open_id')->default('')->comment('第三方ID');
+            $table->string('mobile_num')->default('')->comment('用户手机号码');
+            $table->string('last_login_ip')->default('')->comment('用户登录ip');
+            $table->integer('last_login_time')->comment('用户上次登录时间');
+            $table->string('email')->default('')->comment('用户邮箱');
+            $table->string('access_token')->default('')->comment('access_token');
+            $table->string('avatar')->default('')->comment('用户头像');
+            $table->text('desc')->default('')->comment('个人描述');
+            $table->string('city')->default('')->comment('个人城市');
+            $table->string('website')->default('')->comment('个人网址');
+            $table->tinyinteger('status')->default('1')->comment('用户状态 1:正常 2:冻结');
+            $table->timestamps();
         });
     }
 

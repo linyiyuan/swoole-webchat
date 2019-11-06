@@ -12,10 +12,36 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// ---------- 初始路由
-Route::view('/','welcome');
+// ================== 前端部分路由 ==================
+Route::namespace('Home')->group(function() {
+    Route::prefix('/auth')->namespace('Auth')->group(function(){
+        Route::get('/login', 'AuthController@login');
+        Route::get('/register', 'AuthController@register');
+        Route::get('/logout', 'AuthController@logout');
+        Route::post('/doLogin', 'AuthController@doLogin');
+        Route::post('/doRegister', 'AuthController@doRegister');
 
-Route::get('/login', 'Auth\AuthController@login');
-Route::get('/register', 'Auth\AuthController@register');
-Route::get('/index', 'Home\IndexController@index');
+        ///第三方授权相关
+        Route::prefix('/OAuth')->middleware('web')->group(function(){
+            Route::get('/github','GithubController@init');
+            Route::get('/weibo','WeiBoController@init');
+            Route::get('/qq','QqController@init');
+
+
+            Route::prefix('/callback')->group(function(){
+                Route::any('/github','GithubController@callback');
+                Route::any('/weibo','WeiBoController@callback');
+                Route::any('/qq','QqController@callback');
+            });
+        });
+    });
+
+    Route::middleware('check.session')->group(function(){
+        Route::get('/', 'IndexController@index');
+    });
+});
+
+
+
+
 

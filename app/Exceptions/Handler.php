@@ -64,16 +64,10 @@ class Handler extends ExceptionHandler
 
         //如果不被允许的路由
         if ($exception instanceof MethodNotAllowedHttpException || $exception instanceof NotFoundHttpException) {
-//            if (!($request->ajax() || $request->wantsJson())) {
-                return response(['errorCode' => 404, 'data' => ['message' => '请求接口不存在']]);
-//            }
+                return redirect('/');
+//                return response(['errorCode' => 404, 'data' => ['message' => '请求接口不存在']]);
         }
 
-        //判断是否存在异常
-        if ($exception->getCode() == 0) {
-            $errTemplate = "EXCEPTION::". $exception->getMessage(). "\r\nERRCODE::". $exception->getCode(). "\r\nFILE::". $exception->getFile(). "::LINE::". $exception->getLine();
-            return response(['errorCode' => 500, 'data' => ['message' => $errTemplate]]);
-        }
         return parent::render($request, $exception);
     }
 }

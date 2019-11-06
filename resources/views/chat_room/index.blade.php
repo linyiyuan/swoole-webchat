@@ -1,3 +1,4 @@
+@include('chat_room.message')
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,8 +39,9 @@
                 </div>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary start-tour"><a href="">前往Github</a></button>
-                <button type="button" class="btn btn-link" data-dismiss="modal" aria-label="Close"></button>
+                {{--start-tour 这个样式加上去会增加步骤提示--}}
+                <button type="button" class="btn btn-primary  go-github">前往Github</button>
+                <button type="button" class="btn btn-link" data-dismiss="modal" aria-label="Close">关闭</button>
             </div>
         </div>
     </div>
@@ -585,7 +587,7 @@
                         <a href="#" class="dropdown-item" data-navigation-target="contact-information">Profile</a>
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#settingModal">Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a href="login.html" class="dropdown-item text-danger">Logout</a>
+                        <a href="{{ url('/auth/logout') }}" class="dropdown-item text-danger">Logout</a>
                     </div>
                 </li>
             </ul>

@@ -1,12 +1,20 @@
+@include('chat_room.message')
 @extends('chat_room.common')
 
+@section('style')
+    <style>
+        img{
+            width: 140px;
+        }
+    </style>
+@endsection
 <div class="form-wrapper">
 
     <!-- logo -->
     <div class="logo">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="612px" height="612px" viewBox="0 0 612 612"
+             width="612px" height="100px" viewBox="0 0 612 612"
              style="enable-background:new 0 0 612 612;" xml:space="preserve">
             <g>
                 <g id="_x32__26_">
@@ -43,23 +51,29 @@
     <h5>Create account</h5>
 
     <!-- form -->
-    <form>
+    <form action="{{ url('/auth/doRegister') }}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Firstname" required autofocus>
+            <input type="text" class="form-control" name="nickname" placeholder="请输入你的昵称" value="林益远" required autofocus>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Lastname" required>
+            <input type="text" class="form-control" name="mobile_num" placeholder="请输入手机号码" value="13211035441" required>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email" required>
+            <input type="email" class="form-control"  name="email" placeholder="请输入登录邮箱" value="linyiyuann@163.com" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required>
+            <input type="password" class="form-control" name="password" placeholder="请输入登录密码" value="linyiyuan" required>
+        </div>
+        <div class="form-group">
+            <input type="captcha"  name="captcha" class="form-control" placeholder="请输入验证码" required style="width: 180px;display: inline-block">
+            <span> <img src="{{captcha_src('math')}}" onclick="this.src='/captcha/math?'+Math.random()" alt="验证码" style="cursor: pointer"></span>
+
         </div>
         <button class="btn btn-primary btn-block">Register</button>
         <hr>
         <p class="text-muted">Already have an account?</p>
-        <a href="{{ url('/login') }}" class="btn btn-outline-light btn-sm">Sign in!</a>
+        <a href="{{ url('/auth/login') }}" class="btn btn-outline-light btn-sm">Sign in!</a>
     </form>
     <!-- ./ form -->
 
