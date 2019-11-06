@@ -27,7 +27,7 @@ Route::namespace('Home')->group(function() {
             Route::get('/weibo','WeiBoController@init');
             Route::get('/qq','QqController@init');
 
-
+            ///第三方授权回调路由
             Route::prefix('/callback')->group(function(){
                 Route::any('/github','GithubController@callback');
                 Route::any('/weibo','WeiBoController@callback');

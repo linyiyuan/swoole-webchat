@@ -58,5 +58,9 @@ return [
         'redirect' => env('QQ_REDIRECT', ''),
     ],
 
+    'cookie' => [
+        'COOKIE_KYE:USER_INFO' => 'COOKIE:USER_INFO',
+    ]
+
 
 ];

@@ -16,7 +16,7 @@ class CheckSession
      */
     public function handle($request, Closure $next)
     {
-        if (!Cookie::get('USER_INFO')) return redirect('/auth/login');
+        if (!Cookie::get(config('services.cookie.COOKIE_KYE:USER_INFO'))) return redirect('/auth/login');
 
         return $next($request);
     }

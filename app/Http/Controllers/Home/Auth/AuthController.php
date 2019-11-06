@@ -27,10 +27,10 @@ class AuthController extends CommonController
      */
     public function logout()
     {
-        Cookie::forget('key');
+        //删除Cookie
+        Cookie::queue(Cookie::forget(config('services.cookie.COOKIE_KYE:USER_INFO')));
 
         return $this->webSuccessResponse('退出登录成功', '/auth/login');
-
     }
 
     /**

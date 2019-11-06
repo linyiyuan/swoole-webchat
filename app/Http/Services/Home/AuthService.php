@@ -30,7 +30,7 @@ class AuthService extends BaseService
         if (!Hash::check($postData['password'], $userInfo['password'])) $this->throwExp(400, '密码错误，请重新输入密码');
 
         //存储到COOKie当中
-        Cookie::queue('USER_INFO', json_encode($postData), $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
+        Cookie::queue(config('services.cookie.COOKIE_KYE:USER_INFO'), json_encode($userInfo), $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
 
         return true;
     }
@@ -52,8 +52,7 @@ class AuthService extends BaseService
         $postData['avatar'] = env('APP_URL') . '/images/face/face' . mt_rand(1, 10) . '.png';
 
         //写入用户表中
-        $postData['user_id'] = ChatUser::setChatUser($postData);
-        if (empty($postData['user_id'])) $this->throwExp(400, '添加用户数据失败');
+        if (empty(ChatUser::setChatUser($postData))) $this->throwExp(400, '添加用户数据失败');
 
         return true;
     }

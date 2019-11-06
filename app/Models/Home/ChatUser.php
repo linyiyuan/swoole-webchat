@@ -33,10 +33,14 @@ class ChatUser extends Model
         //判断是否修改
         if ($isEdit) {
             if (empty($condition)) return false;
+            $data['updated_at'] = date('Y-m-d H:i:s', time());
 
             $result = static::query()->where($condition)
                 ->update($data);
         }else{
+
+            $data['created_at'] = date('Y-m-d H:i:s', time());
+            $data['updated_at'] = date('Y-m-d H:i:s', time());
             $result = static::query()->insertGetId($data);
         }
 
@@ -54,5 +58,18 @@ class ChatUser extends Model
         if (empty($email)) return [];
 
         return static::query()->where('email', $email)->first();
+    }
+
+    /**
+     * 根据用户ID获取信息
+     *
+     * @param int $uid
+     * @return array|\Illuminate\Database\Eloquent\Builder|Model|object|null
+     */
+    public static function getInfoById(int $uid)
+    {
+        if (empty($uid)) return [];
+
+        return static::query()->where('id', $uid)->first();
     }
 }
