@@ -28,7 +28,8 @@ class CreateUsersTable extends Migration
             $table->text('desc')->default('')->comment('个人描述');
             $table->string('city')->default('')->comment('个人城市');
             $table->string('website')->default('')->comment('个人网址');
-            $table->tinyinteger('status')->default('1')->comment('用户状态 1:正常 2:冻结');
+            $table->integer('fd')->default(0)->comment('客户端连接标识 0：代表未连接状态');
+            $table->tinyinteger('status')->default('1')->comment('用户状态 1:在线 2:离线');
             $table->timestamps();
         });
     }

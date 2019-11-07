@@ -26,6 +26,7 @@ class AuthService extends BaseService
     public function doLogin($postData)
     {
         $userInfo = ChatUser::getInfoByEmail($postData['email']);
+
         if (empty($userInfo)) $this->throwExp(400, '用户不存在，登录失败');
         if (!Hash::check($postData['password'], $userInfo['password'])) $this->throwExp(400, '密码错误，请重新输入密码');
 

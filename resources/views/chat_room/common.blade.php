@@ -41,7 +41,7 @@
 <script src=" {{ asset('/dist/js/app.min.js') }}"></script>
 
 <!-- Examples -->
-<script src="{{ asset('/dist/js/examples.js') }}"></script>
+{{--<script src="{{ asset('/dist/js/examples.js') }}"></script>--}}
 
 <script src="{{ asset('/vendor/enjoyhint/enjoyhint.min.js') }}"></script>
 

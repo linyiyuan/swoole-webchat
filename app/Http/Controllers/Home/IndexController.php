@@ -20,7 +20,6 @@ class IndexController extends Controller
         $userId = json_decode(Cookie::get(config('services.cookie.COOKIE_KYE:USER_INFO')), true)['id'];
         $userInfo = ChatUser::getInfoById($userId);
 
-
         return view('chat_room.index', compact('userInfo'));
     }
 }
