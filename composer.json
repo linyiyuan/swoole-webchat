@@ -15,6 +15,8 @@
         "laravel/tinker": "^1.0",
         "mews/captcha": "^3.0",
         "predis/predis": "^1.1",
+        "socialiteproviders/qq": "^3.0",
+        "socialiteproviders/weibo": "^3.0",
         "spatie/laravel-permission": "~2.7",
         "zgldh/qiniu-laravel-storage": "^0.10.0"
     },

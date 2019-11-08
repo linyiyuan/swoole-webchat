@@ -38,6 +38,7 @@ Route::namespace('Home')->group(function() {
         });
     });
 
+    //需要Cookie验证的路由
     Route::middleware('check.session')->group(function(){
         Route::get('/', 'IndexController@index');
     });

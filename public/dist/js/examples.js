@@ -87,7 +87,7 @@ $(function () {
     })
 
     function buildWebSocket() {
-        ws = new WebSocket("ws://192.168.2.111:9501");//连接服务器
+        ws = new WebSocket("ws://192.168.2.36:9501");//连接服务器
         ws.onopen = function(event){
 
         };

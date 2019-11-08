@@ -159,7 +159,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
+//        Laravel\Socialite\SocialiteServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class, // add
         Mews\Captcha\CaptchaServiceProvider::class,
 
         /*
@@ -232,6 +233,7 @@ return [
         'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+//        'Socialite' => Laravel\Socialite\Facades\Socialite::class, // add
 
     ],
 
