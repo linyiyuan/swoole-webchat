@@ -63,7 +63,7 @@
         <p class="text-muted">第三方登录平台</p>
         <ul class="list-inline">
             <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-instagram">
+                <a href="{{ url('/OAuth/github') }}" class="btn btn-floating btn-instagram">
                     <i class="fa fa-github"></i>
                 </a>
             </li>

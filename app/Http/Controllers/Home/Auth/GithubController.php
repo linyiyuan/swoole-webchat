@@ -50,7 +50,7 @@ class GithubController extends BaseController
         $userInfo = json_encode($userInfo);
 
         //存储到COOKie当中
-        Cookie::queue('userInfo', $userInfo, $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
+        Cookie::queue(config('services.cookie.COOKIE_KYE:USER_INFO'), json_encode($userInfo), $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
 
         return redirect('/');
     }

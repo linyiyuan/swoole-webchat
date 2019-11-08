@@ -20,19 +20,19 @@ Route::namespace('Home')->group(function() {
         Route::get('/logout', 'AuthController@logout');
         Route::post('/doLogin', 'AuthController@doLogin');
         Route::post('/doRegister', 'AuthController@doRegister');
+    });
 
-        ///第三方授权相关
-        Route::prefix('/OAuth')->middleware('web')->group(function(){
-            Route::get('/github','GithubController@init');
-            Route::get('/weibo','WeiBoController@init');
-            Route::get('/qq','QqController@init');
+    ///第三方授权相关
+    Route::prefix('/OAuth')->namespace('Auth')->middleware('web')->group(function(){
+        Route::get('/github','GithubController@init');
+        Route::get('/weibo','WeiBoController@init');
+        Route::get('/qq','QqController@init');
 
-            ///第三方授权回调路由
-            Route::prefix('/callback')->group(function(){
-                Route::any('/github','GithubController@callback');
-                Route::any('/weibo','WeiBoController@callback');
-                Route::any('/qq','QqController@callback');
-            });
+        ///第三方授权回调路由
+        Route::prefix('/callback')->group(function(){
+            Route::any('/github','GithubController@callback');
+            Route::any('/weibo','WeiBoController@callback');
+            Route::any('/qq','QqController@callback');
         });
     });
 
