@@ -16,10 +16,11 @@ class MessageEvent extends InitServer
 {
     /**
      * 消息类型枚举
-     * 1:上线通知消息类型 2:群聊
+     * 1:上线通知消息类型 2:群聊 3：消息推送
      */
     const MESSAGE_TYPE_ONLINE_REMIND = 1;
     const MESSAGE_TYPE_GROUP_CHAT = 2;
+    const MESSAGE_TYPE_PUSH_MESSAGE = 3;
 
 
     /**
@@ -39,7 +40,6 @@ class MessageEvent extends InitServer
 
         //用户上线广播通知
         $this->onLineBroadcast($server, $userInfo);
-
     }
 
     /**
@@ -80,12 +80,15 @@ class MessageEvent extends InitServer
     public function onLineBroadcast(\Swoole\WebSocket\Server $server, array $userInfo)
     {
         $message = '欢迎 ' . $userInfo['nickname'] . ' 加入聊天室';
+        $onlineCount = count($server->connections);
 
         $data = [
             'type' => self::MESSAGE_TYPE_ONLINE_REMIND,
-            'message' => $message
+            'message' => [
+                'message' => $message,
+                'onlineCount' => $onlineCount
+            ],
         ];
-
         foreach ($server->connections as $key => $fd) {
             $server->push($fd, json_encode($data));
         }
@@ -118,5 +121,28 @@ class MessageEvent extends InitServer
             $server->push($fd, json_encode($data));
         }
     }
+//
+//    /**
+//     * 消息推送
+//     *
+//     * @param \Swoole\WebSocket\Server $server
+//     */
+//    public function messagePush(\Swoole\WebSocket\Server $server)
+//    {
+//        $messagePush = [
+//          'onlineCount' => count($server->connections),
+//        ];
+//
+//        $sendData = [
+//            'time' => date('Y-m-d H:i:s', time()),
+//            'type' => self::MESSAGE_TYPE_PUSH_MESSAGE,
+//            'to' => null,
+//            'message' => $messagePush
+//        ];
+//
+//        foreach ($server->connections as $key => $fd) {
+//            $server->push($fd, json_encode($sendData));
+//        }
+//    }
 
 }

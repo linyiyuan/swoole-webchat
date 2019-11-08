@@ -119,13 +119,14 @@ $(function () {
         ws.send(msg);
     }
     //提示加入信息
-    function onLineBroadcast(message) {
+    function onLineBroadcast(data) {
         $('.layout .content .chat .chat-body .messages').append(`<div class="newly-people">
                 <div class="message-avatar">
 
                 </div>
-                <h7>` + message + `</h7>
+                <h7>` + data.message + `</h7>
             </div>`);
+        $('#onlineCount').text(data.onlineCount)
     }
 
     //群聊发送消息

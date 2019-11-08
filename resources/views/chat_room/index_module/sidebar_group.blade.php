@@ -46,7 +46,7 @@
                 <li class="list-group-item open-chat">
                     <div>
                         <figure class="avatar avatar-state-success">
-                            <img src="./dist/media/img/peoples.jpg" class="rounded-circle" alt="image">
+                            <img src="{{ asset('/dist/media/img/peoples.jpg') }}" class="rounded-circle" alt="image">
                         </figure>
                     </div>
                     <div class="users-list-body">

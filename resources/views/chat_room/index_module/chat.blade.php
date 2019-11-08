@@ -12,12 +12,12 @@
     <div class="chat-header">
         <div class="chat-header-user">
             <figure class="avatar">
-                <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
+                <img src="{{ asset('/dist/media/img/peoples.jpg') }}" class="rounded-circle" alt="image">
             </figure>
             <div>
-                <h5>Byrom Guittet</h5>
+                <h5>公共群聊</h5>
                 <small class="text-success">
-                    <i>writing...</i>
+                    <i>在线人数：<span id="onlineCount"></span></i>
                 </small>
             </div>
         </div>
@@ -46,49 +46,6 @@
     {{--聊天主题--}}
     <div class="chat-body">
         <div class="messages">
-            <div class="message-item outgoing-message">
-                <div class="message-avatar">
-                    <figure class="avatar">
-                        <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
-                    </figure>
-                    <div>
-                        <h5>Mirabelle Tow</h5>
-                        <div class="time">01:20 PM <i class="ti-double-check text-info"></i></div>
-                    </div>
-                </div>
-                <div class="message-content">
-                    Hello how are you?
-                </div>
-            </div>
-            <div class="message-item">
-                <div class="message-avatar">
-                    <figure class="avatar">
-                        <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                    </figure>
-                    <div>
-                        <h5>Byrom Guittet</h5>
-                        <div class="time">01:35 PM</div>
-                    </div>
-                </div>
-                <div class="message-content">
-                    I'm fine, how are you 😃
-                </div>
-            </div>
-            <div class="message-item">
-                <div class="message-avatar">
-                    <figure class="avatar">
-                        <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                    </figure>
-                    <div>
-                        <h5>Byrom Guittet</h5>
-                        <div class="time">10:43 AM</div>
-                    </div>
-                </div>
-                <figure>
-                    <img src="dist/media/img/image1.jpg" class="w-25 img-fluid rounded" alt="image">
-                </figure>
-            </div>
-
         </div>
     </div>
     <div class="chat-footer">
