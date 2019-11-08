@@ -31,7 +31,7 @@ class AuthService extends BaseService
         if (!Hash::check($postData['password'], $userInfo['password'])) $this->throwExp(400, '密码错误，请重新输入密码');
 
         //存储到COOKie当中
-        Cookie::queue(config('services.cookie.COOKIE_KYE:USER_INFO'), json_encode($userInfo), $minutes = 120, $path = null, $domain = env('APP_URL'), $secure = false, $httpOnly = false);
+        Cookie::queue(config('services.cookie.COOKIE_KYE:USER_INFO'), json_encode($userInfo), $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
 
         return true;
     }
