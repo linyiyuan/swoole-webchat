@@ -54,16 +54,16 @@
     <form action="{{ url('/auth/doRegister') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
-            <input type="text" class="form-control" name="nickname" placeholder="请输入你的昵称" value="林益远" required autofocus>
+            <input type="text" class="form-control" name="nickname" placeholder="请输入你的昵称" value="" required autofocus>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="mobile_num" placeholder="请输入手机号码" value="13211035441" required>
+            <input type="text" class="form-control" name="mobile_num" placeholder="请输入手机号码" value="" required>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control"  name="email" placeholder="请输入登录邮箱" value="linyiyuann@163.com" required>
+            <input type="email" class="form-control"  name="email" placeholder="请输入登录邮箱" value="" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="请输入登录密码" value="linyiyuan" required>
+            <input type="password" class="form-control" name="password" placeholder="请输入登录密码" value="" required>
         </div>
         <div class="form-group">
             <input type="captcha"  name="captcha" class="form-control" placeholder="请输入验证码" required style="width: 180px;display: inline-block">
