@@ -27,7 +27,7 @@ class WeiBoController extends Controller
     public function callback()
     {
         //获取用户信息
-        $oauthUser = Socialite::driver('github')->user();
+        $oauthUser = Socialite::driver('weibo')->user();
 
         $userInfo['nickname'] = $oauthUser->nickname;
         $userInfo['access_token'] = $oauthUser->token;

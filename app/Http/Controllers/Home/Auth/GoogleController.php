@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Home\Auth;
 
 use App\Models\Home\ChatUser;
+use http\Cookie;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cookie;
 use Laravel\Socialite\Facades\Socialite;
 
-class QqController extends Controller
+class GoogleController extends Controller
 {
     /**
      * QQ登录初始化
@@ -16,7 +17,7 @@ class QqController extends Controller
      */
     public function init()
     {
-        return Socialite::driver('qq')->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
     /**
@@ -27,7 +28,7 @@ class QqController extends Controller
     public function callback()
     {
         //获取用户信息
-        $oauthUser = Socialite::driver('qq')->user();
+        $oauthUser = Socialite::driver('google')->user();
 
         $userInfo['nickname'] = $oauthUser->nickname;
         $userInfo['access_token'] = $oauthUser->token;

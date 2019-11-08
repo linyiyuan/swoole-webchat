@@ -78,13 +78,13 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-linkedin">
-                    <i class="fa fa-linkedin"></i>
+                <a href="{{ url('/OAuth/google') }}" class="btn btn-floating btn-google">
+                    <i class="fa fa-google"></i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-google">
-                    <i class="fa fa-google"></i>
+                <a href="#" class="btn btn-floating btn-linkedin">
+                    <i class="fa fa-linkedin"></i>
                 </a>
             </li>
             <li class="list-inline-item">

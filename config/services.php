@@ -58,6 +58,12 @@ return [
         'redirect' => env('QQ_REDIRECT', ''),
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_APP_ID', ''),
+        'client_secret' => env('GOOGLE_APP_KEY', ''),
+        'redirect' => env('GOOGLE_REDIRECT', ''),
+    ],
+
     'cookie' => [
         'COOKIE_KYE:USER_INFO' => 'COOKIE:USER_INFO',
     ]
