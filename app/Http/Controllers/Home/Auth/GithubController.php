@@ -47,11 +47,8 @@ class GithubController extends BaseController
         if(!$userId = ChatUser::setChatUser($userInfo)) return redirect('/auth/login?error=注册用户失败');
         $userInfo['id'] = $userId;
 
-        $userInfo = json_encode($userInfo);
-
         //存储到COOKie当中
         Cookie::queue(config('services.cookie.COOKIE_KYE:USER_INFO'), json_encode($userInfo), $minutes = 120, $path = null, $domain = null, $secure = false, $httpOnly = false);
-
         return redirect('/');
     }
 
