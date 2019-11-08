@@ -10,7 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 class QqController extends Controller
 {
     /**
-     * GitHub登录初始化
+     * QQ登录初始化
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -20,7 +20,7 @@ class QqController extends Controller
     }
 
     /**
-     * Github第三方登录回调地址
+     * QQ第三方登录回调地址
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */

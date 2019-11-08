@@ -68,12 +68,12 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-twitter">
+                <a href="{{ url('/OAuth/qq') }}" class="btn btn-floating btn-twitter">
                     <i class="fa fa-qq"></i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-dribbble">
+                <a href="{{ url('/OAuth/weibo') }}" class="btn btn-floating btn-dribbble">
                     <i class="fa fa-weibo"></i>
                 </a>
             </li>
