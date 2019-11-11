@@ -33,6 +33,8 @@ $(function () {
                             cursorborder: '0px'
                         }).resize();
                     }, 200);
+                    $('#last_message').html(message)
+                    $('#last_message_time').html(time)
                 }
             }
         }
@@ -160,6 +162,8 @@ $(function () {
                     cursorborder: '0px'
                 }).resize();
             }, 200);
+            $('#last_message').html(message)
+            $('#last_message_time').html(time)
         }
     }
 

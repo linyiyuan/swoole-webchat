@@ -52,10 +52,10 @@
                     <div class="users-list-body">
                         <div>
                             <h5>公共群聊</h5>
-                            <p>I sent you all the files. Good luck with 😃</p>
+                            <p id="last_message"></p>
                         </div>
                         <div class="users-list-action">
-                            <small class="text-muted">11:05 AM</small>
+                            <small class="text-muted" id="last_message_time"></small>
                             <div class="action-toggle">
                                 <div class="dropdown">
                                     <a data-toggle="dropdown" href="#">

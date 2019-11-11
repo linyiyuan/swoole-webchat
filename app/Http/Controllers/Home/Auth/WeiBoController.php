@@ -33,7 +33,7 @@ class WeiBoController extends Controller
         $userInfo['access_token'] = $oauthUser->token;
         $userInfo['open_id'] = $oauthUser->id;
         $userInfo['avatar'] = $oauthUser->avatar;
-        $userInfo['mobile_num'] = $oauthUser->phone;
+        $userInfo['mobile_num'] = $oauthUser->phone ?? '';
         $userInfo['email'] = $oauthUser->email ?? '';
 
         //注册用户
