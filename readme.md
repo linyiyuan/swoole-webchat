@@ -1,4 +1,2 @@
-# Swoole-practice
+# Swoole-webchat
 - v1.0 林益远 2019.11.1 创建
-
-- 该项目的初衷是本人在学习Swoole过程中，结合所学的知识整合出各类服务器，例如Tcp服务器，Udp服务器，该项目仅供学习
