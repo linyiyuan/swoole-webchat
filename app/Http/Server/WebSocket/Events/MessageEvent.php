@@ -105,7 +105,7 @@ class MessageEvent extends InitServer
         $data = json_decode($frame->data, true);
 
         $userInfo = objToArray(ChatUser::getInfoById($data['from_uid']));
-        $message = htmlentities($data['message']);
+        $message = $data['message'];
 
         $data = [
             'time' => date('Y-m-d H:i:s', time()),

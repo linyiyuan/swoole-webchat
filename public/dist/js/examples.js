@@ -22,7 +22,7 @@ $(function () {
                             </div>
                         </div>
                         <div class="message-content">
-                            ` + message + `
+                            ` + htmlEncode(message) + `
                         </div>
                     </div>`);
 
@@ -33,8 +33,8 @@ $(function () {
                             cursorborder: '0px'
                         }).resize();
                     }, 200);
-                    $('#last_message').html(message)
-                    $('#last_message_time').html(time)
+                    $('#last_message').html(htmlEncode(message));
+                    $('#last_message_time').html(time);
                 }
             }
         }
@@ -151,7 +151,7 @@ $(function () {
                             </div>
                         </div>
                         <div class="message-content">
-                            ` + message + `
+                            ` + htmlEncode(message) + `
                         </div>
                     </div>`);
 
@@ -162,8 +162,8 @@ $(function () {
                     cursorborder: '0px'
                 }).resize();
             }, 200);
-            $('#last_message').html(message)
-            $('#last_message_time').html(time)
+            $('#last_message').html(htmlEncode(message));
+            $('#last_message_time').html(time);
         }
     }
 
@@ -178,6 +178,14 @@ $(function () {
         var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds();
         return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
     }
+
+
+    function  htmlEncode(str) {
+        let ele = document.createElement("span");
+        ele.appendChild( document.createTextNode( str ) );
+        return ele.innerHTML
+    }
+
 
 });
 
