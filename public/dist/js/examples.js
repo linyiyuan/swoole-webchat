@@ -122,6 +122,7 @@ $(function () {
     }
     //提示加入信息
     function onLineBroadcast(data) {
+        console.log(data)
         $('.layout .content .chat .chat-body .messages').append(`<div class="newly-people">
                 <div class="message-avatar">
 
