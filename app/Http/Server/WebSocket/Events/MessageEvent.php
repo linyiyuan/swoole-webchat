@@ -22,7 +22,6 @@ class MessageEvent extends InitServer
     const MESSAGE_TYPE_GROUP_CHAT = 2;
     const MESSAGE_TYPE_PUSH_MESSAGE = 3;
 
-
     /**
      * 客户端与WebSocket服务器建立连接时回调方法
      *
@@ -106,7 +105,7 @@ class MessageEvent extends InitServer
         $data = json_decode($frame->data, true);
 
         $userInfo = objToArray(ChatUser::getInfoById($data['from_uid']));
-        $message = $data['message'];
+        $message = htmlentities($data['message']);
 
         $data = [
             'time' => date('Y-m-d H:i:s', time()),
